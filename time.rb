@@ -25,7 +25,8 @@ def prompt
 
   elsif option == 2 then
     require "socket"
-    time = TCPSocket.new("time-c.nist.gov", 13).read
+    s = TCPSocket.new("time-c.nist.gov", 13)
+    time = s.read
     #                 year    month   day     hour    minute  second  dst
     if time =~ /^\d* (\d{2})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2}) (\d{2})/ then
       year = ("20"+$1).to_i
@@ -38,8 +39,10 @@ def prompt
       if $7.to_i == 50 then
         dst = true
       end
+      s.close
       process(year,month,day,hour,min,sec,dst)
     else
+      s.close
       puts "internet time error"
     end
 
@@ -55,7 +58,7 @@ end
 
 def process(year,month,day,hour,min,sec,dst)
   inc_sec = 0
-  while true
+  while t = Time.now
     buf = "___________________________\n"
     @cities.each do |city,atr|
       off = @cities[city][0].to_i
@@ -68,7 +71,7 @@ def process(year,month,day,hour,min,sec,dst)
     end
     $stdout.write "#{buf}"
     inc_sec += 1
-    sleep 1
+    sleep (t + 1 - Time.now)
   end
 end
 
