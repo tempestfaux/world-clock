@@ -2,7 +2,7 @@
   "Anchorage" => ["-09:00", true], "Los Angeles" => ["-08:00",true], "Salt Lake City" => ["-07:00",true],
   "Kansas City" => ["-06:00",true], "New York City" => ["-05:00", true], "Puerto Rico" => ["-04:00",false],
   "Rio de Janeiro" => ["-03:00",false], "Fernando de Noronha" => ["-02:00",false], "Ponta Delgada" => ["-01:00",true],
-  "London" => ["00:00",true], "Berlin" => ["+01:00",true], "Athens" => ["+02:00",true], "Istanbul" => ["+03:00",false],
+  "London" => ["+00:00",true], "Berlin" => ["+01:00",true], "Athens" => ["+02:00",true], "Istanbul" => ["+03:00",false],
   "Dubai" => ["+04:00",false], "Karachi" => ["+05:00",false], "Myanmar" => ["+06:00",false], "Bangkok" => ["+07:00",false],
   "Beijing" => ["+08:00",false], "Tokyo" => ["+09:00",false], "Melbourne" => ["+10:00",false], "Guadualcanal" => ["+11:00",false],
   "Wake Island" => ["+12:00",false]}
@@ -46,7 +46,7 @@ def prompt
   elsif option == 3 then
     puts "Exiting..."
     exit
-    
+
   else
     puts "Invalid option"
     prompt
@@ -64,10 +64,9 @@ def process(year,month,day,hour,min,sec,dst)
       end
       off = off*(60*60)
       mod = Time.new(year,month,day,hour,min,sec) + off + inc_sec
-      buf += mod.strftime("%H:%M:%S in #{city}\n")
+      buf += mod.strftime("(UTC #{@cities[city][0]}) %H:%M:%S in #{city}\n")
     end
-    $stdout.write "#{buf}\r"
-    $stdout.flush
+    $stdout.write "#{buf}"
     inc_sec += 1
     sleep 1
   end

@@ -26,3 +26,4 @@ the NIST Internet Time Service, and Option 3 quits the program. When using optio
 ## Things to work on
 
 * The program continuously prints new lines rather than update the time of existing ones.
+* Only adjusts for Daylight Savings for cities in the northern hemisphere
