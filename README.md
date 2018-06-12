@@ -14,7 +14,7 @@ differences in timezones.
 Navigate to "time.rb" and run with "ruby time.rb"
 
 ```
-cd .../directory/world-clock
+cd ../directory/world-clock
 ruby time.rb
 ```
 
