@@ -1,6 +1,6 @@
 # World Clock
 
-A program that displays the time of various cities across the world. Works by taking a time source and modifying it based off
+A program that displays the time of cities around the world. Works by taking a time source and modifying it based off
 differences in timezones.
 
 ## How to Run
