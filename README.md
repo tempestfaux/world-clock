@@ -1,7 +1,6 @@
 # World Clock
 
-A program that displays the time of cities around the world. Works by taking a time source and modifying it based off
-differences in timezones.
+A program that displays the time of cities around the world. Works by taking a time source and modifying it with a table of timezones. Time source is pulled from system clock or NIST Internet Time Service.
 
 ## How to Run
 
@@ -20,8 +19,11 @@ ruby time.rb
 
 ### Program options
 
-Starting the program will prompt you with options on how to proceed. Option 1 uses your system's time, option 2 pulls time from
-the NIST Internet Time Service, and Option 3 quits the program. When using options 1 or 2, terminate the program with Ctrl + C.
+Starting the program will prompt you with options on how to proceed. Option 1 uses your system's time, option 2 pulls time from the NIST Internet Time Service, and Option 3 quits the program. 
+
+The program will update the presented time by continuously printing every second.
+
+Terminate program with Ctrl + C.
 
 ## Things to work on
 
